@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue | v-for</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="task in tasks">
+        {{ task.name }}
+      </li>
+    </ul>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el : "#app",
+      data : {
+        tasks : [
+          { name: 'Docker'},
+          { name: 'AWS'},
+          { name: 'CI/CD'},
+          { name: 'Laravel'},
+          { name: 'PHP'},
+          { name: 'Vue.js'},
+          { name: 'JavaScript'},
+          { name: 'git'}
+        ]
+      }
+    });
+  </script>
+
+
+</body>
+</html>
