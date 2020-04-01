@@ -7,6 +7,7 @@
 </head>
 <body>
   <div id="app">
+    <button v-on:click="shuffle"></button>
     <ul>
       <li v-for="task in tasks">
         {{ task.name }}
@@ -15,6 +16,7 @@
   </div>
   
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
   <script>
     var app = new Vue({
       el : "#app",
@@ -29,6 +31,11 @@
           { name: 'JavaScript'},
           { name: 'git'}
         ]
+      },
+      methods : {
+        shuffle : function(){
+          this.tasks = _.shuffle(this.tasks);
+        }
       }
     });
   </script>
