@@ -4,15 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vue | v-for, v-on</title>
+  <style>
+    .flip-list-move{
+      transition:transform .5s;
+    }
+    
+    body{
+      text-align: center;
+    }
+
+    li{
+      list-style: none;
+      padding-right:45px;
+    }
+
+  </style>
 </head>
+
+  <!-- 1〜4の順で見ていくとわかりやすいよ -->
+
 <body>
+  <h1>Want to Learn</h1>
   <div id="app">
-    <button v-on:click="shuffle"></button>
-    <ul>
-      <li v-for="task in tasks">
+  <!-- 1. クリックしたらメソッド「shuffle」を呼び出す（methodsへ） -->
+
+     <transition-group name="flip-list" tag="ul">
+  <!-- 4. 「v-for」は繰り返しの出力 -->
+          <!-- 「task in tasks」は「tasks」の中の要素を「pref」に代入するという意味 -->
+      <li v-for="task in tasks" v-bind:key="task.name">
         {{ task.name }}
       </li>
-    </ul>
+    </transition-group>
+    <button v-on:click="shuffle">SUFFLE</button>
+    <!-- 3. 変わるのを見たいので「transition-group」で囲う -->
+       <!-- キーの指定は「v-bind:key」で -->
   </div>
   
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -34,12 +59,13 @@
       },
       methods : {
         shuffle : function(){
+   // 2. 「this.tasks」を「shuffle」して再代入
+      // 「this.tasks」は「data」で定義した「tasks」
+      //  （「v-for」のリストが変わる）
           this.tasks = _.shuffle(this.tasks);
         }
       }
     });
   </script>
-
-
 </body>
 </html>
