@@ -17,7 +17,6 @@
       list-style: none;
       padding-right:45px;
     }
-
   </style>
 </head>
 
@@ -26,19 +25,18 @@
 <body>
   <h1>Want to Learn</h1>
   <div id="app">
-  <!-- 1. クリックしたらメソッド「shuffle」を呼び出す（methodsへ） -->
-
+  <!-- 3. 変わるのを見たいので「transition-group」で囲う -->
+     <!-- キーの指定は「v-bind:key」で -->
      <transition-group name="flip-list" tag="ul">
   <!-- 4. 「v-for」は繰り返しの出力 -->
-          <!-- 「task in tasks」は「tasks」の中の要素を「pref」に代入するという意味 -->
+     <!-- 「task in tasks」は「tasks」の中の要素を「pref」に代入するという意味 -->
       <li v-for="task in tasks" v-bind:key="task.name">
         {{ task.name }}
       </li>
     </transition-group>
-    <button v-on:click="shuffle">SUFFLE</button>
-    <!-- 3. 変わるのを見たいので「transition-group」で囲う -->
-       <!-- キーの指定は「v-bind:key」で -->
-  </div>
+  <!-- 1. クリックしたらメソッド「shuffle」を呼び出す（methodsへ） -->
+      <button v-on:click="shuffle">SUFFLE</button>
+ </div>
   
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
@@ -59,13 +57,21 @@
       },
       methods : {
         shuffle : function(){
+<<<<<<< HEAD
    // 2. 「this.tasks」を「shuffle」して再代入
       // 「this.tasks」は「data」で定義した「tasks」
       //  （「v-for」のリストが変わる）
+=======
+>>>>>>> 7c2025a3ed3f4dd190cd628a4da68d1491b90859
           this.tasks = _.shuffle(this.tasks);
         }
       }
     });
   </script>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 7c2025a3ed3f4dd190cd628a4da68d1491b90859
 </body>
 </html>
