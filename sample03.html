@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Vue | v-bind</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <style>
     .error{
       color:blue;
@@ -12,7 +14,7 @@
   </style>
 </head>
 <body>
-  <div id="app">
+  <div id="app" class="tile box has-text-info">
     <p v-bind:class="error_class">It's error!</p>
     <img v-bind:src="ing_src">
   </div>
